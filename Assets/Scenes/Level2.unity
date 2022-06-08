@@ -861,7 +861,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd332e19303d14745869aa76d07c49f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletForce: 40
+  FirePoint: {fileID: 1614348637}
+  BulletPrefab: {fileID: 3717998147791645353, guid: 9570b11d41429aa479a5624c224ce75a, type: 3}
+  bulletForce: 2
   playerSpeed: 10
   mouseSensitivity: 180
   CameraTransform: {fileID: 1614348637}

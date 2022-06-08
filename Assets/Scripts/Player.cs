@@ -5,8 +5,8 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
 
-    Transform FirePoint;
-    GameObject BulletPrefab;
+    [SerializeField] Transform FirePoint;
+    [SerializeField] GameObject BulletPrefab;
 
     Rigidbody playerRigidBody;
 
@@ -25,6 +25,14 @@ public class Player : MonoBehaviour
     void Start()
     {
 
+    }
+
+    private void Update()
+    {
+
+    	if (Input.GetMouseButtonDown(0)){
+            Shoot();
+        }
     }
 
     // Update is called once per frame
@@ -58,15 +66,13 @@ public class Player : MonoBehaviour
         Quaternion qNewVerticalLocalOrient = qVerticalRot * CameraTransform.localRotation;
         CameraTransform.localRotation = qNewVerticalLocalOrient;
 
-        if (Input.GetMouseButtonDown(0)){
-            Shoot();
-        }
+        
     }
 
     private void Shoot()
     {
         GameObject bullet = Instantiate(BulletPrefab, FirePoint.position, FirePoint.rotation);
-        Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-        rb.AddForce(FirePoint.up * bulletForce, ForceMode2D.Impulse);
+        Rigidbody rb = bullet.GetComponent<Rigidbody>();
+        rb.AddForce(FirePoint.forward * bulletForce, ForceMode.Impulse);
     }
 }
