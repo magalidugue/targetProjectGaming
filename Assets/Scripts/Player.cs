@@ -52,7 +52,7 @@ public class Player : MonoBehaviour
         playerRigidBody.AddForce(-playerRigidBody.velocity,ForceMode.VelocityChange);
         playerRigidBody.AddTorque(-playerRigidBody.angularVelocity,ForceMode.VelocityChange);
 
-        float verticalRotAngle = rotateVertical * mouseSensitivity * Time.fixedDeltaTime;
+        float verticalRotAngle = -rotateVertical * mouseSensitivity * Time.fixedDeltaTime;
 
         Quaternion qVerticalRot = Quaternion.AngleAxis(verticalRotAngle, Vector3.right);
         Quaternion qNewVerticalLocalOrient = qVerticalRot * CameraTransform.localRotation;
