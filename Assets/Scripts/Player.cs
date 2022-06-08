@@ -49,6 +49,8 @@ public class Player : MonoBehaviour
         Quaternion qHorizontalRot = Quaternion.AngleAxis(horizontalRotAngle, transform.up);
         Quaternion qNewHorizontalOrient = qHorizontalRot * transform.rotation;
         playerRigidBody.MoveRotation(qNewHorizontalOrient);
+        playerRigidBody.AddForce(-playerRigidBody.velocity,ForceMode.VelocityChange);
+        playerRigidBody.AddTorque(-playerRigidBody.angularVelocity,ForceMode.VelocityChange);
 
         float verticalRotAngle = rotateVertical * mouseSensitivity * Time.fixedDeltaTime;
 
