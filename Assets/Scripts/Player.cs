@@ -77,7 +77,5 @@ public class Player : MonoBehaviour
         rb.AddForce(FirePoint.forward * bulletForce, ForceMode.Impulse);
         
         Destroy(Instantiate(Audio), 1);
-
-
     }
 }
