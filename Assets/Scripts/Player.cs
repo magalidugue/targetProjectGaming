@@ -13,7 +13,7 @@ public class Player : MonoBehaviour
     //Decides how fast the bullet shoots
     [SerializeField] float bulletForce = 40f;
     [SerializeField] float playerSpeed = 1.5f;
-    [SerializeField] float mouseSensitivity = 180.0f;
+    [SerializeField] float mouseSensitivity = 360.0f;
     [SerializeField] Transform CameraTransform;
 
     private void Awake()
@@ -29,7 +29,6 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-
     	if (Input.GetMouseButtonDown(0)){
             Shoot();
         }
