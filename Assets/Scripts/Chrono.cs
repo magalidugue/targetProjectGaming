@@ -1,37 +1,30 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Chrono : MonoBehaviour
 {
-	var flag:boolean = false;
-	var startTimer:int;
-	[SerializeField] string temps;
+	bool flag = false;
+	float startTimer;
+	[SerializeField] TMP_Text temps;
     // Start is called before the first frame update
     void Start()
     {
-        //eliott
+        startTimer = Time.time;
+        flag = true;
     }
 
     // Update is called once per frame
     void Update()
     {
     	if(flag == true){
-        var time = Time.time - startTimer;
-        var minutes : int = time / 60;
-        var seconds : int = time % 60;
-        Debug.Log(String.Format ("{0:00}:{1:00}", minutes, seconds));
-        Tostring(temps = seconds);
-    }
-        
-    }
-    function OnTriggerEnter(other : Collider) {
-    startTimer = Time.time;
-    flag = true;
-}
- 
-	function OnTriggerExit (other : Collider) {
-    flag = false;
-}
+            float time = Time.time - startTimer;
+            
+            temps.text = time.ToString("N02");
+        }
 
+        //Si user shot toute les cibles
+        //flag = false;
+    }
 }
