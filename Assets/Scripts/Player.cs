@@ -15,6 +15,7 @@ public class Player : MonoBehaviour
     [SerializeField] float playerSpeed = 1.5f;
     [SerializeField] float mouseSensitivity = 360.0f;
     [SerializeField] Transform CameraTransform;
+    [SerializeField] GameObject Audio;
 
     private void Awake()
     {
@@ -73,5 +74,9 @@ public class Player : MonoBehaviour
         GameObject bullet = Instantiate(BulletPrefab, FirePoint.position, FirePoint.rotation);
         Rigidbody rb = bullet.GetComponent<Rigidbody>();
         rb.AddForce(FirePoint.forward * bulletForce, ForceMode.Impulse);
+        
+        Destroy(Instantiate(Audio), 1);
+
+
     }
 }
