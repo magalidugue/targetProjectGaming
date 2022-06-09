@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8875853486424447537}
   - component: {fileID: 6676144744402360192}
   - component: {fileID: 7377129576827905772}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: rond
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -108,7 +108,7 @@ GameObject:
   - component: {fileID: 404488704445558060}
   - component: {fileID: 3603176794311327786}
   - component: {fileID: -3507891433067011712}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
