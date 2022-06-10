@@ -33,21 +33,26 @@ public class Chrono : MonoBehaviour
 
     public void EndChronoIfLevelFinished()
     {
+        //49 target
     	if(ActualScene == "level1" && Score.compteur == 2)
         {
     		flag = false;
             Score.compteur = 0;
             SceneManager.LoadScene("ScoreDisplayer1", LoadSceneMode.Single);
         }
-        else if(ActualScene == "level2" && Score.compteur == 99)
+        //99 target
+        else if(ActualScene == "level2" && Score.compteur == 2)
         {
     		flag = false;
             Score.compteur = 0;
             SceneManager.LoadScene("ScoreDisplayer2", LoadSceneMode.Single);
         }
+        //33 target
         else if(ActualScene == "level3" && Score.compteur == 33)
         {
     		flag = false;
-    	}
+            Score.compteur = 0;
+            SceneManager.LoadScene("ScoreDisplayer2", LoadSceneMode.Single);
+        }
     }
 }

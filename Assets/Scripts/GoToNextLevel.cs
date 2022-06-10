@@ -7,6 +7,7 @@ public class GoToNextLevel : MonoBehaviour
 {
     public void LoadScene(string sceneName)
     {
+        Debug.Log("load scene : " + sceneName);
         SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
     }
 }
