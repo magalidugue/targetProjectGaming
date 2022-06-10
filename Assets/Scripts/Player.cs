@@ -34,6 +34,7 @@ public class Player : MonoBehaviour
     	if (Input.GetMouseButtonDown(0)){
             Shoot();
         }
+        
     }
 
     // Update is called once per frame
@@ -43,6 +44,7 @@ public class Player : MonoBehaviour
         float zMove = Input.GetAxisRaw("Vertical");
         float rotateHorizontal = Input.GetAxisRaw("Mouse X");
         float rotateVertical = Input.GetAxisRaw("Mouse Y");
+        //input escape = Input.GetAxisRaw("Cancel");
 
         Debug.Log(rotateVertical);
 
