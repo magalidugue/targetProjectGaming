@@ -6,6 +6,8 @@ using UnityEngine;
 public class BulletShot : MonoBehaviour
 {
 	[SerializeField] float bulletLife;
+	[SerializeField] GameObject Audiobreak;
+
 	
 	void Awake()
 	{
@@ -13,10 +15,12 @@ public class BulletShot : MonoBehaviour
 	}
 
     private void OnCollisionEnter(Collision collision) {
+
         
         if(collision.gameObject.tag == "target")
         {
             Destroy(collision.gameObject);
+            Destroy(Instantiate(Audiobreak),6);
             Score.compteur++;
         }
 
