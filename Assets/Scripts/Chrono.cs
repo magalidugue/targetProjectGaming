@@ -9,9 +9,13 @@ public class Chrono : MonoBehaviour
 	bool flag = false;
 	float startTimer;
 	[SerializeField] TMP_Text temps;
+    static public float time;
+    string ActualScene;
+
     // Start is called before the first frame update
     void Start()
     {
+        ActualScene = SceneManager.GetActiveScene().name;
         startTimer = Time.time;
         flag = true;
     }
@@ -20,34 +24,30 @@ public class Chrono : MonoBehaviour
     void Update()
     {
     	if(flag == true){
-            float time = Time.time - startTimer;
+            time = Time.time - startTimer;
             
             temps.text = time.ToString("N02");
         }
-        EndChrono();
-
-        //Si user shot toute les cibles
-        //flag = false;
+        EndChronoIfLevelFinished();
     }
 
-    public void EndChrono()
+    public void EndChronoIfLevelFinished()
     {
-    	string ActualScene = SceneManager.GetActiveScene().name;
-
-    	if(ActualScene == "level1" && Score.compteur == 49){
-    			flag = false;
-    			SceneManager.LoadScene("level2", LoadSceneMode.Single);
-    			Score.compteur = 0;
-    
-    	}else if(ActualScene == "level2" && Score.compteur == 99){
-    			flag = false;
-    			SceneManager.LoadScene("level3", LoadSceneMode.Single);
-    			Score.compteur = 0;
-
-    	}else if(ActualScene == "level3" && Score.compteur == 33){
-    			flag = false;
-
+    	if(ActualScene == "level1" && Score.compteur == 2)
+        {
+    		flag = false;
+            Score.compteur = 0;
+            SceneManager.LoadScene("ScoreDisplayer1", LoadSceneMode.Single);
+        }
+        else if(ActualScene == "level2" && Score.compteur == 99)
+        {
+    		flag = false;
+            Score.compteur = 0;
+            SceneManager.LoadScene("ScoreDisplayer2", LoadSceneMode.Single);
+        }
+        else if(ActualScene == "level3" && Score.compteur == 33)
+        {
+    		flag = false;
     	}
-
     }
 }
